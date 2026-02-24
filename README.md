@@ -15,7 +15,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+For local dev open [http://localhost:3000](http://localhost:3000) in your browser.
+
+Public website link coming soon...
 
 ### Build
 
