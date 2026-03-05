@@ -24,19 +24,22 @@ export default function Home() {
             </span>
             Now in Private Alpha
           </div>
-          <h1 className="text-4xl md:text-6xl font-sans font-bold text-white mb-8 tracking-tight leading-tight">
+          <p className="text-sm md:text-base font-medium text-white/90 uppercase tracking-wider mb-4">
+            Clinical Diligence Platform for Neurodegenerative Drug Programs
+          </p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight [font-family:var(--font-dm-sans),var(--font-inter),ui-sans-serif,sans-serif]">
             CNS Trials, <br />
-            <span className="text-slate-400">Decoded by AI</span>
+            <span className="text-slate-400 font-bold">Decoded by AI</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Unlock the complexities of clinical data with Genivra&apos;s proprietary neural processing engine. Designed for precision biotech and clinical researchers.
+            Analyze CNS clinical trials before they fail. Built for biotech investors, BD teams, and CNS research groups evaluating neurodegenerative pipelines.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#join-waitlist"
               className="w-full sm:w-auto px-10 py-5 bg-sky-500 text-white font-medium rounded-full shadow-xl shadow-sky-500/20 hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
             >
-              Request a Demo
+              Request Early Access
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
             <Link
@@ -57,7 +60,7 @@ export default function Home() {
               Built for the future of clinical intelligence.
             </h2>
             <p className="text-slate-400">
-              Streamline your entire clinical trial lifecycle with intelligent automation and predictive modeling.
+              Genivra models Phase II transition risk using imaging and biomarker validation signals across neurodegenerative programs.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

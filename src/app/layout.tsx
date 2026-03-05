@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,10 +12,16 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-dm-sans",
+});
+
 export const metadata: Metadata = {
   title: "Genivra Insights | Neuro Trials Decoded by AI",
   description:
-    "Unlock the complexities of clinical data with Genivra's proprietary neural processing engine. Designed for precision biotech and clinical researchers.",
+    "Analyze CNS clinical trials before they fail. Built for biotech investors, BD teams, and CNS research groups evaluating neurodegenerative pipelines.",
 };
 
 export default function RootLayout({
@@ -32,7 +38,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} min-h-screen bg-[#05070a] font-sans text-slate-200 antialiased selection:bg-sky-500/30 overflow-x-hidden`}
+        className={`${inter.variable} ${dmSans.variable} min-h-screen bg-[#05070a] font-sans text-slate-200 antialiased selection:bg-sky-500/30 overflow-x-hidden`}
       >
         <FloatingKeywords />
         <Header />

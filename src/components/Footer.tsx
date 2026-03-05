@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -7,10 +8,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-12 mb-20">
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-emerald-400 flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-xl">biotech</span>
-              </div>
-              <span className="font-semibold text-xl tracking-tight text-white">Genivra</span>
+              <Image
+                src="/genivra-logo.png"
+                alt="Genivra"
+                width={32}
+                height={32}
+                className="w-8 h-8 rounded-lg object-contain"
+              />
+              <span className="font-semibold text-xl tracking-tight text-white">Genivra.ai</span>
             </Link>
             <p className="text-slate-400 max-w-xs mb-6">
               The world&apos;s most advanced neural intelligence platform for clinical trial management and biotech research.

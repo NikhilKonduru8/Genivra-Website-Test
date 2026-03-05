@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Header() {
@@ -11,10 +12,14 @@ export default function Header() {
       <nav className="glass-capsule rounded-full px-4 py-2 flex items-center gap-8 max-w-7xl w-full justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2 ml-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-emerald-400 flex items-center justify-center">
-              <span className="material-symbols-outlined text-white text-xl">biotech</span>
-            </div>
-            <span className="font-semibold text-lg tracking-tight text-white">Genivra</span>
+            <Image
+              src="/genivra-logo.png"
+              alt="Genivra"
+              width={32}
+              height={32}
+              className="w-8 h-8 rounded-lg object-contain"
+            />
+            <span className="font-semibold text-lg tracking-tight text-white">Genivra.ai</span>
           </Link>
           <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-400">
             <Link href="/PlatformFeatures" className="hover:text-sky-400 transition-colors">Platform</Link>
