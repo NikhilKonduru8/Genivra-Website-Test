@@ -4,318 +4,128 @@ import HeroWaitlistForm from "@/components/HeroWaitlistForm";
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section - Promptic-style: split headline + inline waitlist */}
-      <section className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
-          <div className="flex-1 text-center lg:text-left">
-            <p className="mb-4 inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400">
-              Early Access Available Now
-            </p>
-            <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              Decode the Future
-            </h1>
-            <h2 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-emerald-400 md:text-5xl lg:text-6xl">
-              Of Neuro Trials
-            </h2>
-            <p className="mb-8 max-w-xl text-lg leading-relaxed text-zinc-400 md:text-xl">
-              For pharmaceutical and biotech teams that want to de-risk CNS development, predict outcomes, and avoid costly trial failures—test our AI now.
-            </p>
-            <a
-              href="#why-choose"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-medium text-white transition hover:border-emerald-500/50 hover:bg-white/5"
-            >
-              Learn how it works
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </a>
-          </div>
-          <div className="w-full shrink-0 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur sm:max-w-md">
-            <HeroWaitlistForm />
-          </div>
-        </div>
-      </section>
-
-      {/* Stats - Moved up like Promptic */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-12">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { value: "6,372+", label: "CNS Trials Analyzed", sub: "Historical data powering insights" },
-              { value: "10,000+", label: "Pharma on Waitlist", sub: "Join the growing community" },
-              { value: "73%", label: "Prediction Accuracy", sub: "On trial outcome forecasting" },
-              { value: "25%", label: "Faster Decisions", sub: "Accelerated protocol design" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="mb-1 text-3xl font-bold text-emerald-400 md:text-4xl">{stat.value}</div>
-                <div className="font-medium">{stat.label}</div>
-                <div className="mt-0.5 text-sm text-zinc-500">{stat.sub}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Trusted By Section */}
-      <section className="border-y border-white/10 bg-white/5 py-12">
-        <div className="mx-auto max-w-7xl px-6">
-          <p className="mb-8 text-center text-sm text-zinc-500">
-            Trusted by leading pharmaceutical & biotech companies
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-12 opacity-60">
-            <span className="text-lg font-semibold text-white">NEUROTECH</span>
-            <span className="text-lg font-semibold text-white">BIOGENIX</span>
-            <span className="text-lg font-semibold text-white">SYNAPTIC</span>
-            <span className="text-lg font-semibold text-white">CORTEX LABS</span>
-            <span className="text-lg font-semibold text-white">NEURAL DYNAMICS</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Genivra - Promptic-style */}
-      <section id="why-choose" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Why Choose Genivra?
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-            The most effective way to de-risk CNS clinical development through AI-powered pattern recognition and data-driven insights
-          </p>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 transition hover:border-emerald-500/30 hover:bg-white/[0.07]">
-            <h4 className="mb-4 text-xl font-semibold">Analyze Historical CNS Trials</h4>
-            <p className="mb-6 text-zinc-400">
-              Deep-dive into decades of neurological trial data. Our AI extracts patterns from
-              thousands of studies to reveal what drives outcomes in CNS research.
-            </p>
-            <ul className="mb-6 space-y-2 text-sm text-zinc-400">
-              <li>• Multi-indication support</li>
-              <li>• Real-time data processing</li>
-              <li>• 10,000+ trials analyzed</li>
-            </ul>
-            <Link
-              href="/PlatformFeatures"
-              className="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300"
-            >
-              Learn more
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-
-          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 transition hover:border-emerald-500/30 hover:bg-white/[0.07]">
-            <h4 className="mb-4 text-xl font-semibold">Identify Failure Patterns</h4>
-            <p className="mb-6 text-zinc-400">
-              Uncover hidden reasons behind trial failures before they happen. Our pattern recognition
-              surfaces risk factors that traditional analysis misses.
-            </p>
-            <ul className="mb-6 space-y-2 text-sm text-zinc-400">
-              <li>• Dropout prediction</li>
-              <li>• Protocol optimization</li>
-              <li>• Predictive risk scoring</li>
-            </ul>
-            <Link
-              href="/PlatformFeatures"
-              className="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300"
-            >
-              Learn more
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-
-          <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 transition hover:border-emerald-500/30 hover:bg-white/[0.07]">
-            <h4 className="mb-4 text-xl font-semibold">Flag Success Biomarkers</h4>
-            <p className="mb-6 text-zinc-400">
-              Discover the biomarkers that correlate with positive outcomes. Make data-driven
-              decisions on patient selection and endpoint design.
-            </p>
-            <ul className="mb-6 space-y-2 text-sm text-zinc-400">
-              <li>• Outcome prediction</li>
-              <li>• Enrichment strategies</li>
-              <li>• Biomarker discovery</li>
-            </ul>
-            <Link
-              href="/PlatformFeatures"
-              className="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300"
-            >
-              Learn more
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/PlatformFeatures"
-            className="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300"
-          >
-            Explore All Platform Features
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      {/* Hero */}
+      <section className="relative pt-32 pb-40 overflow-hidden min-h-screen flex flex-col justify-center">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1400px] h-[800px]">
+            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path className="text-white/10" d="M360 120 L660 150 L1020 210 M180 270 L480 360 L840 420 L900 90 M300 510 L480 360 M840 420 L1020 210" fill="none" stroke="currentColor" strokeWidth="0.5" />
             </svg>
-          </Link>
+          </div>
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/5 blur-[120px] rounded-full" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-sky-500/5 blur-[120px] rounded-full" />
         </div>
-      </section>
 
-      {/* How It Works */}
-      <section className="border-t border-white/10 bg-white/[0.02] py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">
-              How It Works
-            </h2>
-            <h3 className="text-3xl font-bold md:text-4xl">From Data to Discovery</h3>
-            <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-              A streamlined workflow that transforms complex clinical data into clear, actionable
-              intelligence
-            </p>
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-400 mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            Now in Private Alpha
           </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                step: "01",
-                title: "Connect Your Data",
-                desc: "Securely integrate your historical trial data, protocols, and outcomes. Our platform supports all major clinical data formats.",
-              },
-              {
-                step: "02",
-                title: "AI Analysis",
-                desc: "Our neural networks analyze patterns across your data and our proprietary database of 10,000+ CNS trials.",
-              },
-              {
-                step: "03",
-                title: "Generate Insights",
-                desc: "Receive actionable recommendations on protocol design, patient selection, and biomarker strategies.",
-              },
-              {
-                step: "04",
-                title: "Optimize & Execute",
-                desc: "Apply insights to your trial design. Track predictions against real outcomes to continuously improve.",
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-emerald-500/20"
-              >
-                <span className="mb-4 block text-2xl font-bold text-emerald-500/80">{item.step}</span>
-                <h4 className="mb-3 text-lg font-semibold">{item.title}</h4>
-                <p className="text-sm text-zinc-400">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/HowItWorksGuide"
-              className="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300"
+          <h1 className="text-4xl md:text-6xl font-sans font-bold text-white mb-8 tracking-tight leading-tight">
+            CNS Trials, <br />
+            <span className="text-slate-400">Decoded by AI</span>
+          </h1>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Unlock the complexities of clinical data with Genivra&apos;s proprietary neural processing engine. Designed for precision biotech and clinical researchers.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#join-waitlist"
+              className="w-full sm:w-auto px-10 py-5 bg-sky-500 text-white font-medium rounded-full shadow-xl shadow-sky-500/20 hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
             >
-              See Detailed Step-by-Step Guide
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              Request a Demo
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <Link
+              href="/PlatformFeatures"
+              className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white font-medium rounded-full hover:bg-white/10 transition-colors text-center"
+            >
+              Explore Platform
             </Link>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-sm font-medium uppercase tracking-widest text-emerald-400">
-            Features
-          </h2>
-          <h3 className="text-3xl font-bold md:text-4xl">Built for CNS Excellence</h3>
-          <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-            Comprehensive tools designed specifically for neurological clinical development
-          </p>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Neural Pattern Recognition",
-              desc: "Advanced AI models trained on CNS-specific trial data to identify success patterns invisible to traditional analysis.",
-            },
-            {
-              title: "Comprehensive CNS Database",
-              desc: "Access to 10,000+ historical neurological trials spanning Alzheimer's, Parkinson's, depression, and more.",
-            },
-            {
-              title: "Predictive Analytics",
-              desc: "Forecast trial outcomes with 73% accuracy using biomarker correlation and protocol optimization algorithms.",
-            },
-            {
-              title: "Enterprise Security",
-              desc: "SOC 2 Type II certified infrastructure with end-to-end encryption for your sensitive clinical data.",
-            },
-            {
-              title: "Real-Time Insights",
-              desc: "Generate comprehensive trial risk assessments and recommendations in minutes, not months.",
-            },
-            {
-              title: "Collaborative Workspace",
-              desc: "Share insights across teams with role-based access and integrated communication tools.",
-            },
-          ].map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-xl border border-white/10 bg-white/5 p-6 transition hover:border-white/20"
-            >
-              <h4 className="mb-2 font-semibold">{feature.title}</h4>
-              <p className="text-sm text-zinc-400">{feature.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/Science"
-            className="inline-flex items-center gap-2 text-emerald-400 transition hover:text-emerald-300"
-          >
-            Discover the Science Behind Our AI
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+      <section className="py-32 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-2xl mb-20">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-6">
+              Built for the future of clinical intelligence.
+            </h2>
+            <p className="text-slate-400">
+              Streamline your entire clinical trial lifecycle with intelligent automation and predictive modeling.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { icon: "psychology", title: "Neural Data Mapping", desc: "Automatically categorize and link complex neurobiological data points with 99.8% accuracy using our LLM-driven parser.", hoverColor: "group-hover:bg-sky-500" },
+              { icon: "insights", title: "Predictive Outcomes", desc: "Simulate trial results based on historical cohorts to identify potential bottlenecks before they impact your timeline.", hoverColor: "group-hover:bg-emerald-500" },
+              { icon: "security", title: "Immutable Compliance", desc: "Enterprise-grade security with audit trails logged on a private ledger, ensuring absolute data integrity and regulatory readiness.", hoverColor: "group-hover:bg-sky-500" },
+              { icon: "auto_awesome", title: "Automated Reporting", desc: "Generate publication-ready reports and visualization suites with a single click, formatted for FDA and EMA submissions.", hoverColor: "group-hover:bg-emerald-500" },
+            ].map((feature) => (
+              <div
+                key={feature.title}
+                className="group p-10 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-sky-500/30 transition-all duration-500"
+              >
+                <div className={`w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 ${feature.hoverColor} group-hover:text-white transition-colors duration-500`}>
+                  <span className="material-symbols-outlined text-3xl">{feature.icon}</span>
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-4">{feature.title}</h3>
+                <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Final CTA - Promptic-style with inline waitlist */}
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 p-12 text-center md:p-16">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Ready to De-Risk Your CNS Trials?
-          </h2>
-          <p className="mb-8 text-zinc-400">
-            Join leading pharmaceutical companies using AI to transform neurological drug development
-          </p>
-          <div className="mx-auto max-w-md">
-            <HeroWaitlistForm compact />
-          </div>
-          <p className="mt-6 text-sm text-zinc-500">
-            Free initial consultation • No credit card required • Response within 24 hours
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-6">
-            <span className="flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs text-zinc-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-              SOC 2 Certified
-            </span>
-            <span className="flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs text-zinc-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-              HIPAA Compliant
-            </span>
-            <span className="flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs text-zinc-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-              FDA Validated Methods
-            </span>
+      {/* Stats */}
+      <section className="py-20 bg-white/[0.02]">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { value: "450+", label: "Trials Managed" },
+            { value: "40%", label: "Faster Processing" },
+            { value: "12M+", label: "Data Points" },
+            { value: "99%", label: "Retention Rate" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl md:text-4xl font-sans font-bold text-white mb-2">{stat.value}</div>
+              <div className="text-sm text-slate-400 font-medium tracking-wide uppercase">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-32 overflow-hidden relative">
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <div className="rounded-3xl bg-slate-800 p-12 md:p-20 text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 via-transparent to-emerald-400/20 opacity-50" />
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-8">
+                Ready to accelerate your research?
+              </h2>
+              <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto">
+                Join leading biotech teams who trust Genivra for their critical intelligence needs.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href="#join-waitlist"
+                  className="w-full sm:w-auto px-8 py-4 bg-sky-500 text-white font-medium rounded-full hover:bg-sky-400 transition-colors"
+                >
+                  Start Free Trial
+                </a>
+                <a
+                  href="#join-waitlist"
+                  className="w-full sm:w-auto px-8 py-4 bg-white/10 text-white font-medium rounded-full hover:bg-white/20 border border-white/10 transition-colors"
+                >
+                  Contact Sales
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

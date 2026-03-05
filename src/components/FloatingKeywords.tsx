@@ -44,9 +44,7 @@ export default function FloatingKeywords() {
     <div
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
       aria-hidden
-      style={{
-        transform: `translate3d(0, ${-parallaxOffset}px, 0)`,
-      }}
+      style={{ transform: `translate3d(0, ${-parallaxOffset}px, 0)` }}
     >
       {KEYWORDS.map((text, i) => {
         const pos = POSITIONS[i % POSITIONS.length];
@@ -59,7 +57,7 @@ export default function FloatingKeywords() {
             style={{
               ...pos,
               animation: `float-keyword ${duration}s ease-in-out ${delay}s infinite`,
-              color: "rgba(255, 255, 255, 0.05)",
+              color: "rgba(255, 255, 255, 0.04)",
             }}
           >
             {text}

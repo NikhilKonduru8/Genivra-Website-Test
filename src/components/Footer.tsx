@@ -2,47 +2,51 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#050a12]">
-      <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <Link href="/" className="text-lg font-bold text-white">
-              Genivra <span className="text-emerald-400">Insights</span>
+    <footer className="bg-[#05070a] pt-20 pb-10 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-12 mb-20">
+          <div className="col-span-2">
+            <Link href="/" className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-emerald-400 flex items-center justify-center">
+                <span className="material-symbols-outlined text-white text-xl">biotech</span>
+              </div>
+              <span className="font-semibold text-xl tracking-tight text-white">Genivra</span>
             </Link>
-            <p className="mt-2 text-sm text-zinc-400">
-              AI-Powered Clinical Intelligence
+            <p className="text-slate-400 max-w-xs mb-6">
+              The world&apos;s most advanced neural intelligence platform for clinical trial management and biotech research.
             </p>
           </div>
-          <div className="flex flex-wrap gap-6">
-            <Link href="/PlatformFeatures" className="text-sm text-zinc-400 hover:text-white">
-              Platform Features
-            </Link>
-            <Link href="/HowItWorksGuide" className="text-sm text-zinc-400 hover:text-white">
-              How It Works
-            </Link>
-            <Link href="/Science" className="text-sm text-zinc-400 hover:text-white">
-              Science
-            </Link>
-            <a href="#join-waitlist" className="text-sm text-zinc-400 hover:text-white">
-              Join Waitlist
-            </a>
+          <div>
+            <h4 className="font-semibold text-white mb-6">Product</h4>
+            <ul className="space-y-4 text-sm text-slate-400">
+              <li><Link href="/PlatformFeatures" className="hover:text-sky-400 transition-colors">Platform Overview</Link></li>
+              <li><Link href="/Science" className="hover:text-sky-400 transition-colors">Neural Engine</Link></li>
+              <li><Link href="/PlatformFeatures" className="hover:text-sky-400 transition-colors">Compliance</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-6">Resources</h4>
+            <ul className="space-y-4 text-sm text-slate-400">
+              <li><Link href="/HowItWorksGuide" className="hover:text-sky-400 transition-colors">How It Works</Link></li>
+              <li><Link href="/Science" className="hover:text-sky-400 transition-colors">Research</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-6">Company</h4>
+            <ul className="space-y-4 text-sm text-slate-400">
+              <li><a href="#join-waitlist" className="hover:text-sky-400 transition-colors">Contact</a></li>
+              <li><a href="#join-waitlist" className="hover:text-sky-400 transition-colors">Get Access</a></li>
+            </ul>
           </div>
         </div>
-        <div className="mt-8 flex flex-wrap gap-6 border-t border-white/10 pt-8">
-          <span className="flex items-center gap-2 text-xs text-zinc-500">
-            <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-emerald-400">SOC 2</span>
-            Certified
-          </span>
-          <span className="flex items-center gap-2 text-xs text-zinc-500">
-            <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-emerald-400">HIPAA</span>
-            Compliant
-          </span>
-          <span className="flex items-center gap-2 text-xs text-zinc-500">
-            <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-emerald-400">FDA</span>
-            Validated Methods
-          </span>
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-xs text-slate-500">© {new Date().getFullYear()} Genivra Insights Inc. All rights reserved.</p>
+          <div className="flex gap-8 text-xs text-slate-500">
+            <span>SOC 2 Certified</span>
+            <span>HIPAA Compliant</span>
+            <span>FDA Validated</span>
+          </div>
         </div>
-        <p className="mt-6 text-xs text-zinc-600">© {new Date().getFullYear()} Genivra AI. All rights reserved.</p>
       </div>
     </footer>
   );
