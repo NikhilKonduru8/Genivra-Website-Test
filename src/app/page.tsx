@@ -1,129 +1,215 @@
 import Link from "next/link";
-import HeroWaitlistForm from "@/components/HeroWaitlistForm";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import FloatingKeywords from "@/components/FloatingKeywords";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { FeatureGrid, HOME_FEATURES } from "@/components/ui/feature";
+
+const METRICS = [
+  { value: "450+", label: "Trials Managed" },
+  { value: "40%", label: "Faster Processing" },
+  { value: "12M+", label: "Data Points" },
+  { value: "99%", label: "Retention Rate" },
+];
+
+const INDICATIONS = [
+  "Alzheimer's",
+  "Parkinson's",
+  "ALS",
+  "Depression",
+  "Schizophrenia",
+  "Multiple Sclerosis",
+  "Huntington's",
+  "Epilepsy",
+  "Bipolar",
+  "PTSD",
+  "Migraine",
+  "Stroke",
+];
+
+const CAPABILITIES = [
+  "Biomarker Validation",
+  "Imaging Signals",
+  "Phase II Transition",
+  "Patient Enrichment",
+  "Regulatory Readiness",
+  "Protocol Optimization",
+];
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      {/* Hero */}
-      <section className="relative pt-32 pb-40 overflow-hidden min-h-screen flex flex-col justify-center">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1400px] h-[800px]">
-            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <path className="text-white/10" d="M360 120 L660 150 L1020 210 M180 270 L480 360 L840 420 L900 90 M300 510 L480 360 M840 420 L1020 210" fill="none" stroke="currentColor" strokeWidth="0.5" />
-            </svg>
-          </div>
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/5 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-sky-500/5 blur-[120px] rounded-full" />
+      {/* HERO */}
+      <section className="relative min-h-[92vh] overflow-hidden pt-28 sm:pt-32">
+        <FloatingKeywords />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.55]">
+          <div className="absolute left-1/2 top-[30%] h-[560px] w-[980px] -translate-x-1/2 rounded-full bg-sky-500/[0.07] blur-[130px]" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-400 mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+        <div className="relative z-10 mx-auto flex max-w-[1600px] flex-col px-6 sm:px-8">
+          <div className="mb-8 flex items-center gap-2">
+            <Badge variant="live">
+              <span className="relative mr-1 flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              </span>
+              Now in Private Alpha
+            </Badge>
+            <span className="eyebrow hidden sm:inline">
+              Clinical Diligence Platform for Neurodegenerative Drug Programs
             </span>
-            Now in Private Alpha
           </div>
-          <p className="text-sm md:text-base font-medium text-white/90 uppercase tracking-wider mb-4">
-            Clinical Diligence Platform for Neurodegenerative Drug Programs
-          </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight [font-family:var(--font-dm-sans),var(--font-inter),ui-sans-serif,sans-serif]">
-            CNS Trials, <br />
-            <span className="text-slate-400 font-bold">Decoded by AI</span>
+
+          <h1 className="display-xxl mb-6 text-[18vw] leading-[0.92] text-white sm:text-[14vw] lg:text-[11vw]">
+            Genivra<span className="text-sky-400/90">.</span>
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Analyze CNS clinical trials before they fail. Built for biotech investors, BD teams, and CNS research groups evaluating neurodegenerative pipelines.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#join-waitlist"
-              className="w-full sm:w-auto px-10 py-5 bg-sky-500 text-white font-medium rounded-full shadow-xl shadow-sky-500/20 hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
-            >
-              Request Early Access
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </a>
-            <Link
-              href="/PlatformFeatures"
-              className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white font-medium rounded-full hover:bg-white/10 transition-colors text-center"
-            >
-              Explore Platform
-            </Link>
+
+          <div className="grid gap-10 border-t border-white/[0.06] pt-10 md:grid-cols-12">
+            <div className="md:col-span-7 lg:col-span-8">
+              <p className="max-w-3xl text-2xl leading-[1.2] tracking-tight text-white sm:text-3xl md:text-[2.25rem]">
+                CNS Trials, <span className="text-slate-500">Decoded by AI.</span>
+              </p>
+              <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-slate-400 sm:text-base">
+                Analyze CNS clinical trials before they fail. Built for biotech investors, BD teams, and CNS research groups evaluating neurodegenerative pipelines.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <a
+                  href="#join-waitlist"
+                  className={buttonVariants({ variant: "default", size: "lg" })}
+                >
+                  Request Early Access
+                  <ArrowRight className="size-4" />
+                </a>
+                <Link
+                  href="/PlatformFeatures"
+                  className={buttonVariants({ variant: "outline", size: "lg" })}
+                >
+                  Explore Platform
+                </Link>
+              </div>
+            </div>
+            <aside className="md:col-span-5 lg:col-span-4">
+              <p className="eyebrow mb-4">Focus</p>
+              <ul className="divide-y divide-white/[0.06] border-y border-white/[0.06]">
+                {CAPABILITIES.slice(0, 5).map((c) => (
+                  <li
+                    key={c}
+                    className="flex items-center justify-between py-3 text-[14px] text-slate-300"
+                  >
+                    <span>{c}</span>
+                    <ArrowUpRight className="size-3.5 text-slate-600" />
+                  </li>
+                ))}
+              </ul>
+            </aside>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-32 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl mb-20">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-6">
-              Built for the future of clinical intelligence.
-            </h2>
-            <p className="text-slate-400">
+      {/* INDICATION MARQUEE */}
+      <section className="relative border-y border-white/[0.06] bg-[var(--surface)]/60 py-5 sm:py-6">
+        <div className="flex gap-14 overflow-hidden whitespace-nowrap">
+          <div className="flex animate-marquee gap-14 whitespace-nowrap">
+            {[...INDICATIONS, ...INDICATIONS].map((ind, i) => (
+              <span
+                key={`${ind}-${i}`}
+                className="flex items-center gap-14 text-[13px] font-medium uppercase tracking-[0.2em] text-slate-500"
+              >
+                {ind}
+                <span className="h-1 w-1 rounded-full bg-slate-700" />
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED — cards */}
+      <section className="relative py-24 sm:py-32">
+        <div className="mx-auto max-w-[1600px] px-6 sm:px-8">
+          <div className="mb-14 flex flex-col gap-4 md:mb-20 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="eyebrow mb-3">Featured — Capabilities</p>
+              <h2 className="display-xl max-w-3xl text-4xl text-white sm:text-5xl md:text-6xl">
+                Built for the future of clinical intelligence.
+              </h2>
+            </div>
+            <p className="max-w-md text-[15px] leading-relaxed text-slate-400">
               Genivra models Phase II transition risk using imaging and biomarker validation signals across neurodegenerative programs.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { icon: "psychology", title: "Neural Data Mapping", desc: "Automatically categorize and link complex neurobiological data points with 99.8% accuracy using our LLM-driven parser.", hoverColor: "group-hover:bg-sky-500" },
-              { icon: "insights", title: "Predictive Outcomes", desc: "Simulate trial results based on historical cohorts to identify potential bottlenecks before they impact your timeline.", hoverColor: "group-hover:bg-emerald-500" },
-              { icon: "security", title: "Immutable Compliance", desc: "Enterprise-grade security with audit trails logged on a private ledger, ensuring absolute data integrity and regulatory readiness.", hoverColor: "group-hover:bg-sky-500" },
-              { icon: "auto_awesome", title: "Automated Reporting", desc: "Generate publication-ready reports and visualization suites with a single click, formatted for FDA and EMA submissions.", hoverColor: "group-hover:bg-emerald-500" },
-            ].map((feature) => (
+
+          <FeatureGrid items={HOME_FEATURES} />
+        </div>
+      </section>
+
+      {/* STATEMENT + METRICS */}
+      <section className="relative border-y border-white/[0.06] bg-[var(--surface)]/40 py-24 sm:py-32">
+        <div className="mx-auto max-w-[1600px] px-6 sm:px-8">
+          <p className="eyebrow mb-6">Built for</p>
+          <h2 className="display-xxl max-w-6xl text-5xl text-white sm:text-7xl lg:text-[6.5rem]">
+            the future of{" "}
+            <span className="text-slate-500">clinical intelligence.</span>
+          </h2>
+          <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-slate-400">
+            Genivra models Phase II transition risk using imaging and biomarker validation signals across neurodegenerative programs.
+          </p>
+
+          <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-white/[0.06] sm:mt-20 lg:grid-cols-4">
+            {METRICS.map((m) => (
               <div
-                key={feature.title}
-                className="group p-10 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-sky-500/30 transition-all duration-500"
+                key={m.label}
+                className="flex flex-col justify-between gap-8 bg-[var(--background)] p-6 sm:p-8 lg:p-10"
               >
-                <div className={`w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 ${feature.hoverColor} group-hover:text-white transition-colors duration-500`}>
-                  <span className="material-symbols-outlined text-3xl">{feature.icon}</span>
+                <span className="eyebrow">{m.label}</span>
+                <div className="display-xl text-4xl text-white sm:text-5xl lg:text-6xl">
+                  {m.value}
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-4">{feature.title}</h3>
-                <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20 bg-white/[0.02]">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { value: "450+", label: "Trials Managed" },
-            { value: "40%", label: "Faster Processing" },
-            { value: "12M+", label: "Data Points" },
-            { value: "99%", label: "Retention Rate" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-sans font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-sm text-slate-400 font-medium tracking-wide uppercase">{stat.label}</div>
-            </div>
-          ))}
+      {/* SECONDARY MARQUEE - capabilities */}
+      <section className="border-b border-white/[0.06] py-6 sm:py-8">
+        <div className="overflow-hidden whitespace-nowrap">
+          <div className="flex animate-marquee-slow gap-10 whitespace-nowrap">
+            {[...CAPABILITIES, ...CAPABILITIES, ...CAPABILITIES].map((c, i) => (
+              <span
+                key={`${c}-${i}`}
+                className="display-xl flex items-center gap-10 text-4xl text-slate-700 sm:text-5xl"
+              >
+                {c}
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-800" />
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-32 overflow-hidden relative">
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <div className="rounded-3xl bg-slate-800 p-12 md:p-20 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 via-transparent to-emerald-400/20 opacity-50" />
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-8">
+      <section className="relative py-24 sm:py-32">
+        <div className="mx-auto max-w-[1600px] px-6 sm:px-8">
+          <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-sky-500/[0.08] via-white/[0.02] to-transparent px-8 py-16 sm:px-14 sm:py-20 md:px-20 md:py-24">
+            <div className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-sky-500/20 blur-[120px]" />
+            <div className="relative z-10 max-w-3xl">
+              <p className="eyebrow mb-5">Get Started</p>
+              <h2 className="display-xl text-4xl text-white sm:text-5xl md:text-6xl">
                 Ready to accelerate your research?
               </h2>
-              <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto">
+              <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-slate-400 sm:text-base">
                 Join leading biotech teams who trust Genivra for their critical intelligence needs.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="mt-10 flex flex-wrap items-center gap-3">
                 <a
                   href="#join-waitlist"
-                  className="w-full sm:w-auto px-8 py-4 bg-sky-500 text-white font-medium rounded-full hover:bg-sky-400 transition-colors"
+                  className={buttonVariants({ variant: "default", size: "lg" })}
                 >
                   Start Free Trial
                 </a>
                 <a
                   href="#join-waitlist"
-                  className="w-full sm:w-auto px-8 py-4 bg-white/10 text-white font-medium rounded-full hover:bg-white/20 border border-white/10 transition-colors"
+                  className={buttonVariants({ variant: "outline", size: "lg" })}
                 >
                   Contact Sales
                 </a>

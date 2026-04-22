@@ -4,18 +4,20 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaitlistModal from "@/components/WaitlistModal";
-import FloatingKeywords from "@/components/FloatingKeywords";
+import AmbientBackdrop from "@/components/AmbientBackdrop";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,19 +32,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${dmSans.variable} min-h-screen bg-[#05070a] font-sans text-slate-200 antialiased selection:bg-sky-500/30 overflow-x-hidden`}
+        className={`${inter.variable} ${dmSans.variable} min-h-screen bg-[var(--background)] font-sans text-foreground antialiased overflow-x-hidden`}
+        suppressHydrationWarning
       >
-        <FloatingKeywords />
+        <AmbientBackdrop />
         <Header />
-        <main className="relative pt-20">{children}</main>
+        <main className="relative z-10">{children}</main>
         <Footer />
         <WaitlistModal />
       </body>

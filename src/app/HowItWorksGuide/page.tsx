@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowLeft } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "How It Works | Genivra Insights",
@@ -55,48 +57,84 @@ const steps = [
 
 export default function HowItWorksGuidePage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-16">
-      <Link href="/" className="mb-12 inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white">
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
+    <div className="mx-auto max-w-[1600px] px-6 pb-24 pt-32 sm:px-8 sm:pb-32 sm:pt-40">
+      <Link
+        href="/"
+        className="mb-10 inline-flex items-center gap-2 text-[13px] font-medium text-slate-500 transition-colors hover:text-white"
+      >
+        <ArrowLeft className="size-3.5" />
         Back to Home
       </Link>
 
-      <div className="mb-20">
-        <h1 className="text-3xl md:text-5xl font-sans font-bold text-white mb-6">
-          How Genivra Works: <br />
-          <span className="text-slate-400">Step-by-Step</span>
+      <header className="mb-20 border-b border-white/[0.06] pb-16 md:mb-28 md:pb-20">
+        <p className="eyebrow mb-5">How It Works</p>
+        <h1 className="display-xxl max-w-5xl text-5xl text-white sm:text-7xl md:text-[6.5rem]">
+          How Genivra Works:{" "}
+          <span className="text-slate-500">Step-by-Step.</span>
         </h1>
-        <p className="max-w-3xl text-lg text-slate-400">
+        <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-slate-400 sm:text-base">
           From data upload to trial optimization, here&apos;s a detailed walkthrough of how our platform transforms your CNS trial strategy with AI-powered insights.
         </p>
-      </div>
+      </header>
 
       {steps.map((step) => (
-        <section key={step.num} className="mb-20">
-          <div className="mb-6 flex items-center gap-4">
-            <span className="text-2xl font-sans font-bold text-sky-400">{step.num}</span>
-            <h2 className="text-2xl font-semibold text-white">{step.title}</h2>
-          </div>
-          <p className="mb-8 text-slate-400">{step.desc}</p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {step.cards.map((card) => (
-              <div key={card.title} className="rounded-2xl border border-white/5 bg-white/[0.02] p-6 hover:border-sky-500/20 transition-all duration-500">
-                <h3 className="mb-2 font-semibold text-white">{card.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{card.desc}</p>
+        <section
+          key={step.num}
+          className="mb-16 border-t border-white/[0.06] pt-12 md:mb-24 md:pt-16"
+        >
+          <div className="grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-4 lg:col-span-3">
+              <div className="md:sticky md:top-28">
+                <span className="display-xl block text-6xl text-slate-700 sm:text-7xl">
+                  {step.num}
+                </span>
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                  {step.title}
+                </h2>
+                <p className="mt-4 text-[14px] leading-relaxed text-slate-400">
+                  {step.desc}
+                </p>
               </div>
-            ))}
+            </div>
+            <div className="md:col-span-8 lg:col-span-9">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+                {step.cards.map((card) => (
+                  <article
+                    key={card.title}
+                    className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.18] hover:bg-white/[0.035] sm:p-7"
+                  >
+                    <h3 className="text-[15px] font-semibold tracking-tight text-white">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-[14px] leading-relaxed text-slate-400">
+                      {card.desc}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       ))}
 
-      <section className="rounded-3xl bg-slate-800 p-12 md:p-16 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 via-transparent to-emerald-400/20 opacity-50" />
-        <div className="relative z-10">
-          <h2 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4">Ready to Get Started?</h2>
-          <p className="mb-8 text-slate-400">See Genivra in action with a personalized demo using your trial data.</p>
-          <a href="/#join-waitlist" className="inline-block rounded-full bg-sky-500 px-10 py-4 font-semibold text-white transition hover:bg-sky-400">Get Access</a>
+      <section className="mt-8 relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-sky-500/[0.08] via-white/[0.02] to-transparent px-8 py-14 sm:px-14 sm:py-20 md:px-20">
+        <div className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-sky-500/20 blur-[120px]" />
+        <div className="relative z-10 max-w-3xl">
+          <p className="eyebrow mb-5">Get Started</p>
+          <h2 className="display-xl text-3xl text-white sm:text-4xl md:text-5xl">
+            Ready to Get Started?
+          </h2>
+          <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-slate-400">
+            See Genivra in action with a personalized demo using your trial data.
+          </p>
+          <div className="mt-10">
+            <a
+              href="/#join-waitlist"
+              className={buttonVariants({ variant: "default", size: "lg" })}
+            >
+              Get Access
+            </a>
+          </div>
         </div>
       </section>
     </div>

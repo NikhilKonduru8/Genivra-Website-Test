@@ -3,17 +3,20 @@
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitWaitlist, type WaitlistState } from "@/app/actions/waitlist";
+import { Button } from "@/components/ui/button";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <button
+    <Button
       type="submit"
+      variant="default"
+      size="lg"
       disabled={pending}
-      className="w-full rounded-full bg-sky-500 py-3.5 font-semibold text-white transition hover:bg-sky-400 disabled:opacity-60 shadow-lg shadow-sky-500/20"
+      className="w-full"
     >
       {pending ? "Submitting…" : "Join Now"}
-    </button>
+    </Button>
   );
 }
 
@@ -24,39 +27,40 @@ export default function HeroWaitlistForm({ compact }: { compact?: boolean }) {
   );
 
   return (
-    <div className="mx-auto max-w-md">
+    <div className="mx-auto w-full max-w-md">
       {!compact && (
         <>
-          <h3 className="mb-2 text-lg font-semibold text-white">Join the Waitlist</h3>
-          <p className="mb-6 text-sm text-slate-400">
+          <p className="eyebrow mb-3">Waitlist</p>
+          <h3 className="text-xl font-semibold tracking-tight text-white">
+            Join the Waitlist
+          </h3>
+          <p className="mt-2 text-sm text-slate-400">
             Be among the first to de-risk your CNS trials with AI
           </p>
         </>
       )}
-      <form action={formAction} className="space-y-4">
-        <div>
-          <label htmlFor="hero-company-name" className="sr-only">Company name</label>
-          <input
-            id="hero-company-name"
-            name="company_name"
-            type="text"
-            required
-            placeholder="Company name"
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-          />
-        </div>
-        <div>
-          <label htmlFor="hero-company-email" className="sr-only">Company email</label>
-          <input
-            id="hero-company-email"
-            name="company_email"
-            type="email"
-            required
-            placeholder="Email address"
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-          />
-        </div>
-        {state && !state.ok && <p className="text-sm text-red-400">{state.error}</p>}
+      <form action={formAction} className="mt-5 space-y-3">
+        <input
+          id="hero-company-name"
+          name="company_name"
+          type="text"
+          required
+          placeholder="Company name"
+          aria-label="Company name"
+          className="w-full rounded-full border border-white/[0.1] bg-white/[0.03] px-5 py-3 text-[14px] text-white placeholder-slate-600 transition-colors focus:border-sky-500/70 focus:outline-none"
+        />
+        <input
+          id="hero-company-email"
+          name="company_email"
+          type="email"
+          required
+          placeholder="Email address"
+          aria-label="Company email"
+          className="w-full rounded-full border border-white/[0.1] bg-white/[0.03] px-5 py-3 text-[14px] text-white placeholder-slate-600 transition-colors focus:border-sky-500/70 focus:outline-none"
+        />
+        {state && !state.ok && (
+          <p className="text-sm text-red-400">{state.error}</p>
+        )}
         {state?.ok && (
           <p className="text-sm text-emerald-400">
             Thanks for your submission. We&apos;ll get back to you as soon as possible.

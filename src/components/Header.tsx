@@ -3,63 +3,87 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+
+const NAV = [
+  { href: "/PlatformFeatures", label: "Platform" },
+  { href: "/HowItWorksGuide", label: "Solutions" },
+  { href: "/Science", label: "Research" },
+];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
-      <nav className="glass-capsule rounded-full px-4 py-2 flex items-center gap-8 max-w-7xl w-full justify-between">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 ml-2">
-            <Image
-              src="/genivra-logo.png"
-              alt="Genivra"
-              width={32}
-              height={32}
-              className="w-8 h-8 rounded-lg object-contain"
-            />
-            <span className="font-semibold text-lg tracking-tight text-white">Genivra.ai</span>
-          </Link>
-          <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-400">
-            <Link href="/PlatformFeatures" className="hover:text-sky-400 transition-colors">Platform</Link>
-            <Link href="/HowItWorksGuide" className="hover:text-sky-400 transition-colors">Solutions</Link>
-            <Link href="/Science" className="hover:text-sky-400 transition-colors">Research</Link>
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Genivra home">
+          <Image
+            src="/genivra-logo.png"
+            alt="Genivra"
+            width={28}
+            height={28}
+            className="h-7 w-7 rounded-md object-contain"
+            priority
+          />
+          <span className="text-[15px] font-semibold tracking-tight text-white">
+            Genivra.ai
+          </span>
+        </Link>
+
+        <nav className="hidden items-center gap-10 text-[13px] font-medium text-slate-400 md:flex">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="transition-colors hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
           <a
             href="#join-waitlist"
-            className="bg-sky-500 hover:bg-sky-400 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg shadow-sky-500/20"
+            className={buttonVariants({ variant: "ghost", size: "sm", className: "hidden sm:inline-flex" })}
+          >
+            Contact
+          </a>
+          <a
+            href="#join-waitlist"
+            className={buttonVariants({ variant: "default", size: "sm" })}
           >
             Get Access
           </a>
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden rounded-lg p-2 text-white hover:bg-white/10"
+            type="button"
+            onClick={() => setOpen(!open)}
+            className="ml-1 grid h-9 w-9 place-items-center rounded-full border border-white/10 text-slate-300 transition hover:border-white/25 hover:text-white md:hidden"
             aria-label="Toggle menu"
           >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {open ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
         </div>
-      </nav>
+      </div>
 
-      {menuOpen && (
-        <div className="absolute left-6 right-6 top-full mt-2 glass-capsule rounded-2xl px-6 py-4 lg:hidden">
-          <div className="flex flex-col gap-4">
-            <Link href="/PlatformFeatures" className="text-slate-300 hover:text-sky-400" onClick={() => setMenuOpen(false)}>Platform</Link>
-            <Link href="/HowItWorksGuide" className="text-slate-300 hover:text-sky-400" onClick={() => setMenuOpen(false)}>Solutions</Link>
-            <Link href="/Science" className="text-slate-300 hover:text-sky-400" onClick={() => setMenuOpen(false)}>Research</Link>
-            <a href="#join-waitlist" className="bg-sky-500 text-white px-6 py-2.5 rounded-full text-center text-sm font-medium" onClick={() => setMenuOpen(false)}>Get Access</a>
-          </div>
+      {open && (
+        <div className="mx-5 mb-4 rounded-2xl border border-white/10 bg-[var(--surface)]/95 p-2 backdrop-blur-xl md:hidden">
+          <nav className="flex flex-col">
+            {NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-xl px-4 py-3 text-[14px] font-medium text-slate-300 transition-colors hover:bg-white/[0.04] hover:text-white"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       )}
-    </div>
+    </header>
   );
 }
